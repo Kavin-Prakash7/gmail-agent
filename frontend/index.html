@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowzint AI | Gmail Orchestration Dashboard</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="logo-container">
+                <i class="fa-solid fa-brain logo-icon"></i>
+                <span class="logo-text">Flowzint AI</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active"><i class="fa-solid fa-inbox"></i> Inbox</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-robot"></i> Active Agents</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> Insights</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+            <div class="system-status">
+                <div class="status-item">
+                    <span class="status-dot online"></span>
+                    <span>AI Engine Active</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-dot online" id="gmailStatus"></span>
+                    <span>Gmail Disconnected</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar glass-panel">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search emails or orchestrate AI workflows...">
+                </div>
+                <div class="topbar-actions">
+                    <div class="sync-indicator hidden" id="syncIndicator">
+                        <i class="fa-solid fa-rotate sync-icon"></i> Realtime Sync
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff" alt="User" class="avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Emails Column -->
+                <section class="emails-section glass-panel">
+                    <div class="section-header">
+                        <h2>Intelligence Inbox</h2>
+                        <button class="action-btn primary" id="loginBtn"><i class="fa-brands fa-google"></i> Connect Gmail</button>
+                    </div>
+                    <div class="emails-list" id="emailsList">
+                        <p class="empty-state">Connect your Gmail to begin AI orchestration.</p>
+                    </div>
+                </section>
+
+                <!-- Detail Panel (Dynamic) -->
+                <section class="detail-section glass-panel hidden" id="detailSection">
+                    <div class="detail-header">
+                        <button class="icon-btn" id="closeDetail"><i class="fa-solid fa-xmark"></i></button>
+                        <h3 id="detailSubject">Email Subject</h3>
+                        <div class="detail-meta">
+                            <span id="detailSender">Sender Name</span>
+                            <span id="detailTime">Time</span>
+                        </div>
+                    </div>
+                    <div class="detail-content" id="detailContent">
+                        <!-- Full body rendered here -->
+                    </div>
+                </section>
+
+                <!-- Insights Column -->
+                <aside class="insights-section glass-panel" id="insightsSection">
+                    <div class="section-header">
+                        <h2 id="insightsTitle">AI Orchestration</h2>
+                    </div>
+                    <div class="insights-content" id="insightsContent">
+                        <p class="empty-state">No active insights.</p>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/ui.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
